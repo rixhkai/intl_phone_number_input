@@ -17,6 +17,7 @@ class SelectorButton extends StatelessWidget {
   final String? locale;
   final bool isEnabled;
   final bool isScrollControlled;
+  final ButtonStyle? buttonStyle;
 
   final ValueChanged<Country?> onCountryChanged;
 
@@ -32,6 +33,7 @@ class SelectorButton extends StatelessWidget {
     required this.onCountryChanged,
     required this.isEnabled,
     required this.isScrollControlled,
+    this.buttonStyle
   }) : super(key: key);
 
   @override
@@ -62,11 +64,36 @@ class SelectorButton extends StatelessWidget {
                 trailingSpace: selectorConfig.trailingSpace,
                 textStyle: selectorTextStyle,
               )
-        : MaterialButton(
+        : ElevatedButton(
             key: Key(TestHelper.DropdownButtonKeyValue),
-            padding: EdgeInsets.zero,
-            minWidth: 0,
-            onPressed: countries.isNotEmpty && countries.length > 1 && isEnabled
+            style: ButtonStyle(
+              minimumSize: buttonStyle != null && buttonStyle!.minimumSize != null ? buttonStyle!.minimumSize : ButtonStyleButton.allOrNull(const Size(0, 0)),
+              alignment: buttonStyle != null && buttonStyle!.alignment != null ? buttonStyle!.alignment : null,
+              animationDuration: buttonStyle != null && buttonStyle!.animationDuration != null ? buttonStyle!.animationDuration : null,
+              backgroundBuilder: buttonStyle != null && buttonStyle!.backgroundBuilder != null ? buttonStyle!.backgroundBuilder : null,
+              backgroundColor: buttonStyle != null && buttonStyle!.backgroundColor != null ? buttonStyle!.backgroundColor : null,
+              elevation: buttonStyle != null && buttonStyle!.elevation != null ? buttonStyle!.elevation : null,
+              enableFeedback: buttonStyle != null && buttonStyle!.enableFeedback != null ? buttonStyle!.enableFeedback : null,
+              fixedSize: buttonStyle != null && buttonStyle!.fixedSize != null ? buttonStyle!.fixedSize : null,
+              foregroundBuilder: buttonStyle != null && buttonStyle!.foregroundBuilder != null ? buttonStyle!.foregroundBuilder : null,
+              foregroundColor: buttonStyle != null && buttonStyle!.foregroundColor != null ? buttonStyle!.foregroundColor : null,
+              iconAlignment: buttonStyle != null && buttonStyle!.iconAlignment != null ? buttonStyle!.iconAlignment : null,
+              iconColor: buttonStyle != null && buttonStyle!.iconColor != null ? buttonStyle!.iconColor : null,
+              iconSize: buttonStyle != null && buttonStyle!.iconSize != null ? buttonStyle!.iconSize : null,
+              maximumSize: buttonStyle != null && buttonStyle!.maximumSize != null ? buttonStyle!.maximumSize : null,
+              mouseCursor: buttonStyle != null && buttonStyle!.mouseCursor != null ? buttonStyle!.mouseCursor : null,
+              overlayColor: buttonStyle != null && buttonStyle!.overlayColor != null ? buttonStyle!.overlayColor : null,
+              padding: buttonStyle != null && buttonStyle!.padding != null ? buttonStyle!.padding : null,
+              shadowColor: buttonStyle != null && buttonStyle!.shadowColor != null ? buttonStyle!.shadowColor : null,
+              shape: buttonStyle != null && buttonStyle!.shape != null ? buttonStyle!.shape : null,
+              side: buttonStyle != null && buttonStyle!.side != null ? buttonStyle!.side : null,
+              splashFactory: buttonStyle != null && buttonStyle!.splashFactory != null ? buttonStyle!.splashFactory : null,
+              surfaceTintColor: buttonStyle != null && buttonStyle!.surfaceTintColor != null ? buttonStyle!.surfaceTintColor : null,
+              tapTargetSize: buttonStyle != null && buttonStyle!.tapTargetSize != null ? buttonStyle!.tapTargetSize : null,
+              textStyle: buttonStyle != null && buttonStyle!.textStyle != null ? buttonStyle!.textStyle : null,
+              visualDensity: buttonStyle != null && buttonStyle!.visualDensity != null ? buttonStyle!.visualDensity : null
+            ),
+            onPressed: countries.length > 1 && isEnabled
                 ? () async {
                     Country? selected;
                     if (selectorConfig.selectorType ==
