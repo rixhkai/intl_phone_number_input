@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:intl_phone_number_input/src/models/country_model.dart';
 import 'package:intl_phone_number_input/src/widgets/input_widget.dart';
 
@@ -118,6 +119,10 @@ class SelectorConfig {
   /// Defaults to false.
   final bool useBottomSheetSafeArea;
 
+  final Icon? suffixIcon;
+
+  final EdgeInsetsGeometry? paddingSuffixIcon;
+
   /// Creates a new [SelectorConfig] with the specified options.
   ///
   /// All parameters have sensible defaults and can be omitted if not needed.
@@ -144,5 +149,7 @@ class SelectorConfig {
     this.leadingPadding,
     this.trailingSpace = true,
     this.useBottomSheetSafeArea = false,
+    this.suffixIcon,
+    this.paddingSuffixIcon
   });
 }

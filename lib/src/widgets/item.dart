@@ -11,6 +11,8 @@ class Item extends StatelessWidget {
   final bool withCountryNames;
   final double? leadingPadding;
   final bool trailingSpace;
+  final Icon? suffixIcon;
+  final EdgeInsetsGeometry? paddingSuffixIcon;
 
   const Item({
     Key? key,
@@ -21,6 +23,8 @@ class Item extends StatelessWidget {
     this.withCountryNames = false,
     this.leadingPadding = 12,
     this.trailingSpace = true,
+    this.suffixIcon,
+    this.paddingSuffixIcon
   }) : super(key: key);
 
   @override
@@ -46,6 +50,9 @@ class Item extends StatelessWidget {
             textDirection: TextDirection.ltr,
             style: textStyle,
           ),
+          Padding(padding: paddingSuffixIcon != null ? paddingSuffixIcon! : EdgeInsets.all(0),
+            child: suffixIcon != null ? suffixIcon : null,
+          )
         ],
       ),
     );

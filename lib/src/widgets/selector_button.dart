@@ -50,6 +50,8 @@ class SelectorButton extends StatelessWidget {
                     leadingPadding: selectorConfig.leadingPadding,
                     trailingSpace: selectorConfig.trailingSpace,
                     textStyle: selectorTextStyle,
+                    suffixIcon: selectorConfig.suffixIcon,
+                    paddingSuffixIcon: selectorConfig.paddingSuffixIcon,
                   ),
                   value: country,
                   items: mapCountryToDropdownItem(countries),
@@ -63,6 +65,8 @@ class SelectorButton extends StatelessWidget {
                 leadingPadding: selectorConfig.leadingPadding,
                 trailingSpace: selectorConfig.trailingSpace,
                 textStyle: selectorTextStyle,
+                suffixIcon: selectorConfig.suffixIcon,
+                paddingSuffixIcon: selectorConfig.paddingSuffixIcon,
               )
         : ElevatedButton(
             key: Key(TestHelper.DropdownButtonKeyValue),
@@ -119,6 +123,8 @@ class SelectorButton extends StatelessWidget {
                 leadingPadding: selectorConfig.leadingPadding,
                 trailingSpace: selectorConfig.trailingSpace,
                 textStyle: selectorTextStyle,
+                suffixIcon: selectorConfig.suffixIcon,
+                paddingSuffixIcon: selectorConfig.paddingSuffixIcon,
               ),
             ),
           );
