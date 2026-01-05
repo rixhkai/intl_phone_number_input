@@ -251,7 +251,7 @@ class PhoneNumber extends Equatable {
   /// print(national); // Output: "234567890"
   /// ```
   String parseNumber() {
-    return this.phoneNumber!.replaceAll("${this.dialCode}", '');
+    return this.phoneNumber!.replaceFirst("${this.dialCode}", '');
   }
 
   /// For predefined phone number returns Country's [isoCode] from the dial code,
